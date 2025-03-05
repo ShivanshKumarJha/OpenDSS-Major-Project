@@ -1,0 +1,78 @@
+Clear
+Set DefaultBaseFrequency = 50
+
+// =============================================
+// 1. MAIN CIRCUIT & VOLTAGE SOURCE
+// =============================================
+New Circuit.NITK_MainBus BasekV=11 pu=1.0 phases=3 bus1=NITK_MainBus
+New Vsource.MainSource bus1=NITK_MainBus basekv=11 pu=1.0 phases=3 frequency=50
+
+
+// =============================================
+// 2. TRANSFORMERS
+// =============================================
+
+// Substations
+New Transformer.SUB1 buses=[SUB1_HV, SUB1_LV] phases=3 
+~ kVs=[11, 0.44] kVAs=[1600] XHL=5.75 
+~ conns=[delta, wye]
+New Transformer.SUB2 buses=[SUB2_HV, SUB2_LV] phases=3 
+~ kVs=[11, 0.44] kVAs=[1250] XHL=5.75 
+~ conns=[delta, wye]
+New Transformer.SUB3 buses=[SUB3_HV, SUB3_LV] phases=3 
+~ kVs=[11, 0.44] kVAs=[1600] XHL=5.75 
+~ conns=[delta, wye]
+New Transformer.SUB4 buses=[SUB4_HV, SUB4_LV] phases=3 
+~ kVs=[11, 0.44] kVAs=[750] XHL=5.75 
+~ conns=[delta, wye]
+
+// Distribution Transformers
+New Transformer.XFMR1 buses=[XFMR1_PRI, XFMR1_SEC] phases=3 
+~ kVs=[11, 0.44] kVAs=[1600] XHL=5.75 
+~ conns=[delta, wye]
+New Transformer.XFMR2 buses=[XFMR2_PRI, XFMR2_SEC] phases=3 
+~ kVs=[11, 0.44] kVAs=[1600] XHL=5.75 
+~ conns=[delta, wye]
+New Transformer.XFMR3 buses=[XFMR3_PRI, XFMR3_SEC] phases=3 
+~ kVs=[11, 0.44] kVAs=[1250] XHL=5.75 
+~ conns=[delta, wye]
+New Transformer.XFMR4 buses=[XFMR4_PRI, XFMR4_SEC] phases=3 
+~ kVs=[11, 0.44] kVAs=[1250] XHL=5.75 
+~ conns=[delta, wye]
+New Transformer.XFMR5 buses=[XFMR5_PRI, XFMR5_SEC] phases=3 
+~ kVs=[11, 0.44] kVAs=[1600] XHL=5.75 
+~ conns=[delta, wye]
+New Transformer.XFMR6 buses=[XFMR6_PRI, XFMR6_SEC] phases=3 
+~ kVs=[11, 0.44] kVAs=[1600] XHL=5.75 
+~ conns=[delta, wye]
+New Transformer.XFMR7 buses=[XFMR7_PRI, XFMR7_SEC] phases=3 
+~ kVs=[11, 0.44] kVAs=[750] XHL=5.75 
+~ conns=[delta, wye]
+New Transformer.XFMR8 buses=[XFMR8_PRI, XFMR8_SEC] phases=3 
+~ kVs=[11, 0.44] kVAs=[750] XHL=5.75 
+~ conns=[delta, wye]
+
+
+// =============================================
+// 3. BUS COORDINATES 
+// =============================================
+Buscoords bus_coordinates.csv
+
+
+// =============================================
+// 4. SYSTEM SETTINGS & ANALYSIS
+// =============================================
+// Set Voltagebases=[11, 0.44]
+// CalcVoltageBases
+// Set Tolerance=0.0001
+// Set Maxiter=100
+// Solve
+
+// =============================================
+// 5. RESULTS & VISUALIZATION
+// =============================================
+// Show Voltages
+// Export Voltages
+// Export Currents
+// Set EarthModel=WGS84
+// Plot Circuit PowerFlow

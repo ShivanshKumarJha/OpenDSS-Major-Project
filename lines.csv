@@ -1,0 +1,1 @@
+Name,FromBus,ToBus,Length(km),R1(ohm/km),X1(ohm/km)Line1,SourceBus,SUB1_HV,0.1,0.115,0.12Line2,SourceBus,SUB2_HV,0.1,0.115,0.12Line3,SourceBus,SUB3_HV,0.1,0.115,0.12Line4,SourceBus,SUB4_HV,0.1,0.115,0.12

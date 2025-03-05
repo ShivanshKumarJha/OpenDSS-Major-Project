@@ -1,4 +1,4 @@
-PrimaryBus,SecondaryBus,PrimaryVoltage,SecondaryVoltage,kVA,XHL,Latitude,Longitude,Configuration 
+PrimaryBus,SecondaryBus,PrimaryVoltage,SecondaryVoltage,kVA,XHL,Latitude,Longitude,Configuration
 XFMR1_PRI,XFMR1_SEC,11000,440,1600,5.75,29.945176,76.817828,Delta-Star
 XFMR2_PRI,XFMR2_SEC,11000,440,1600,5.75,29.945176,76.817828,Delta-Star
 XFMR3_PRI,XFMR3_SEC,11000,440,1250,5.75,29.947142,76.818373,Delta-Star

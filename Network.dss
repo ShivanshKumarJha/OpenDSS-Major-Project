@@ -1,0 +1,18 @@
+New Circuit.SubstationNetwork basekv=11 pu=1.0 phases=3
+New Vsource.Source bus1=SourceBus basekv=11 pu=1.0 phases=3
+New Transformer.SubXfmr1 phases=3 windings=2 Xhl=5.75 kVA=1600 Conns=[Delta Wye] Buses=[SUB1_HV SUB1_LV] kVs=[11.0 0.44]
+New Transformer.SubXfmr2 phases=3 windings=2 Xhl=5.75 kVA=1600 Conns=[Delta Wye] Buses=[SUB2_HV SUB2_LV] kVs=[11.0 0.44]
+New Transformer.SubXfmr3 phases=3 windings=2 Xhl=5.75 kVA=1600 Conns=[Delta Wye] Buses=[SUB3_HV SUB3_LV] kVs=[11.0 0.44]
+New Transformer.SubXfmr4 phases=3 windings=2 Xhl=5.75 kVA=1600 Conns=[Delta Wye] Buses=[SUB4_HV SUB4_LV] kVs=[11.0 0.44]
+New Transformer.XFMR1 phases=3 windings=2 Xhl=5.75 kVA=1600 Conns=[Delta Wye] Buses=[XFMR1_PRI XFMR1_SEC] kVs=[11.0 0.44]
+New Transformer.XFMR2 phases=3 windings=2 Xhl=5.75 kVA=1600 Conns=[Delta Wye] Buses=[XFMR2_PRI XFMR2_SEC] kVs=[11.0 0.44]
+New Transformer.XFMR3 phases=3 windings=2 Xhl=5.75 kVA=1250 Conns=[Delta Wye] Buses=[XFMR3_PRI XFMR3_SEC] kVs=[11.0 0.44]
+New Transformer.XFMR4 phases=3 windings=2 Xhl=5.75 kVA=1250 Conns=[Delta Wye] Buses=[XFMR4_PRI XFMR4_SEC] kVs=[11.0 0.44]
+New Transformer.XFMR5 phases=3 windings=2 Xhl=5.75 kVA=1600 Conns=[Delta Wye] Buses=[XFMR5_PRI XFMR5_SEC] kVs=[11.0 0.44]
+New Transformer.XFMR6 phases=3 windings=2 Xhl=5.75 kVA=1600 Conns=[Delta Wye] Buses=[XFMR6_PRI XFMR6_SEC] kVs=[11.0 0.44]
+New Transformer.XFMR7 phases=3 windings=2 Xhl=5.75 kVA=750 Conns=[Delta Wye] Buses=[XFMR7_PRI XFMR7_SEC] kVs=[11.0 0.44]
+New Transformer.XFMR8 phases=3 windings=2 Xhl=5.75 kVA=750 Conns=[Delta Wye] Buses=[XFMR8_PRI XFMR8_SEC] kVs=[11.0 0.44]
+New Line.Line1 Bus1=SourceBus Bus2=SUB1_HV Length=0.1 R1=0.115 X1=0.12 Units=km
+New Line.Line2 Bus1=SourceBus Bus2=SUB2_HV Length=0.1 R1=0.115 X1=0.12 Units=km
+New Line.Line3 Bus1=SourceBus Bus2=SUB3_HV Length=0.1 R1=0.115 X1=0.12 Units=km
+New Line.Line4 Bus1=SourceBus Bus2=SUB4_HV Length=0.1 R1=0.115 X1=0.12 Units=km
