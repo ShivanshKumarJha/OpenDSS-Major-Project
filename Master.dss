@@ -1,7 +1,0 @@
-Clear
-Redirect Network.dss
-Redirect BusCoords.dss
-Set Voltagebases=[11 0.44]
-Calcvoltagebases
-Solve
-Show Voltages

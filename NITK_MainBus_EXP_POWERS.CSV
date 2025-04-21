@@ -1,0 +1,33 @@
+Element, Terminal, P(kW), Q(kvar),  P_Normal, Q_Normal, P_Emergency, Q_Emergency
+"Transformer.SUB1A"     ,   1,        85.0,        17.9,         0.0,         0.0,         0.0,         0.0
+"Transformer.SUB1A"     ,   2,       -85.0,       -17.5
+"Transformer.SUB1B"     ,   1,        85.0,        17.9,         0.0,         0.0,         0.0,         0.0
+"Transformer.SUB1B"     ,   2,       -85.0,       -17.5
+"Transformer.SUB2A"     ,   1,       110.0,        38.1,         0.0,         0.0,         0.0,         0.0
+"Transformer.SUB2A"     ,   2,      -110.0,       -37.5
+"Transformer.SUB2B"     ,   1,       110.0,        38.1,         0.0,         0.0,         0.0,         0.0
+"Transformer.SUB2B"     ,   2,      -110.0,       -37.5
+"Transformer.SUB3A"     ,   1,        55.0,        22.6,         0.0,         0.0,         0.0,         0.0
+"Transformer.SUB3A"     ,   2,       -55.0,       -22.5
+"Transformer.SUB3B"     ,   1,        55.0,        22.6,         0.0,         0.0,         0.0,         0.0
+"Transformer.SUB3B"     ,   2,       -55.0,       -22.5
+"Transformer.SUB4A"     ,   1,        72.5,        28.0,         0.0,         0.0,         0.0,         0.0
+"Transformer.SUB4A"     ,   2,       -72.5,       -27.5
+"Transformer.SUB4B"     ,   1,        72.5,        28.0,         0.0,         0.0,         0.0,         0.0
+"Transformer.SUB4B"     ,   2,       -72.5,       -27.5
+"Line.SUB1_SUB2"        ,   1,      -170.1,       -35.9,         0.0,         0.0,         0.0,         0.0
+"Line.SUB1_SUB2"        ,   2,       170.1,        35.7
+"Line.SUB2_SUB3"        ,   1,      -390.2,      -112.0,         0.0,         0.0,         0.0,         0.0
+"Line.SUB2_SUB3"        ,   2,       390.2,       111.9
+"Line.SUB3_SUB4"        ,   1,      -500.2,      -157.1,         0.0,         0.0,         0.0,         0.0
+"Line.SUB3_SUB4"        ,   2,       500.2,       157.0
+"Line.SUB4_MAIN"        ,   1,      -645.3,      -212.9,         0.0,         0.0,         0.0,         0.0
+"Line.SUB4_MAIN"        ,   2,       645.4,       212.8
+"Load.HOSTEL1"          ,   1,        80.0,        20.0
+"Load.HOSTEL2"          ,   1,        90.0,        15.0
+"Load.LAB1"             ,   1,       120.0,        40.0
+"Load.LAB2"             ,   1,       100.0,        35.0
+"Load.CANTEEN"          ,   1,        60.0,        25.0
+"Load.GYM"              ,   1,        50.0,        20.0
+"Load.ADMIN"            ,   1,        70.0,        30.0
+"Load.BLOCKC"           ,   1,        75.0,        25.0

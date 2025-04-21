@@ -1,78 +1,76 @@
 Clear
-Set DefaultBaseFrequency = 50
+Set DefaultBaseFrequency=50
 
-// =============================================
-// 1. MAIN CIRCUIT & VOLTAGE SOURCE
-// =============================================
+// --- Main Source ---
 New Circuit.NITK_MainBus BasekV=11 pu=1.0 phases=3 bus1=NITK_MainBus
 New Vsource.MainSource bus1=NITK_MainBus basekv=11 pu=1.0 phases=3 frequency=50
 
+// --- Substation Transformers (Each substation has 2 transformers) ---
+New Transformer.SUB1A buses=[SUB1_HV, SUB1_LV] phases=3 windings=2 xhl=5.75
+~ kVs=[11,0.44] kVAs=[1000,1000] conns=[wye,wye]
 
-// =============================================
-// 2. TRANSFORMERS
-// =============================================
+New Transformer.SUB1B buses=[SUB1_HV, SUB1_LV] phases=3 windings=2 xhl=5.75
+~ kVs=[11,0.44] kVAs=[1000,1000] conns=[wye,wye]
 
-// Substations
-New Transformer.SUB1 buses=[SUB1_HV, SUB1_LV] phases=3 
-~ kVs=[11, 0.44] kVAs=[1600] XHL=5.75 
-~ conns=[delta, wye]
-New Transformer.SUB2 buses=[SUB2_HV, SUB2_LV] phases=3 
-~ kVs=[11, 0.44] kVAs=[1250] XHL=5.75 
-~ conns=[delta, wye]
-New Transformer.SUB3 buses=[SUB3_HV, SUB3_LV] phases=3 
-~ kVs=[11, 0.44] kVAs=[1600] XHL=5.75 
-~ conns=[delta, wye]
-New Transformer.SUB4 buses=[SUB4_HV, SUB4_LV] phases=3 
-~ kVs=[11, 0.44] kVAs=[750] XHL=5.75 
-~ conns=[delta, wye]
+New Transformer.SUB2A buses=[SUB2_HV, SUB2_LV] phases=3 windings=2 xhl=5.75
+~ kVs=[11,0.44] kVAs=[1250,1250] conns=[wye,wye]
 
-// Distribution Transformers
-New Transformer.XFMR1 buses=[XFMR1_PRI, XFMR1_SEC] phases=3 
-~ kVs=[11, 0.44] kVAs=[1600] XHL=5.75 
-~ conns=[delta, wye]
-New Transformer.XFMR2 buses=[XFMR2_PRI, XFMR2_SEC] phases=3 
-~ kVs=[11, 0.44] kVAs=[1600] XHL=5.75 
-~ conns=[delta, wye]
-New Transformer.XFMR3 buses=[XFMR3_PRI, XFMR3_SEC] phases=3 
-~ kVs=[11, 0.44] kVAs=[1250] XHL=5.75 
-~ conns=[delta, wye]
-New Transformer.XFMR4 buses=[XFMR4_PRI, XFMR4_SEC] phases=3 
-~ kVs=[11, 0.44] kVAs=[1250] XHL=5.75 
-~ conns=[delta, wye]
-New Transformer.XFMR5 buses=[XFMR5_PRI, XFMR5_SEC] phases=3 
-~ kVs=[11, 0.44] kVAs=[1600] XHL=5.75 
-~ conns=[delta, wye]
-New Transformer.XFMR6 buses=[XFMR6_PRI, XFMR6_SEC] phases=3 
-~ kVs=[11, 0.44] kVAs=[1600] XHL=5.75 
-~ conns=[delta, wye]
-New Transformer.XFMR7 buses=[XFMR7_PRI, XFMR7_SEC] phases=3 
-~ kVs=[11, 0.44] kVAs=[750] XHL=5.75 
-~ conns=[delta, wye]
-New Transformer.XFMR8 buses=[XFMR8_PRI, XFMR8_SEC] phases=3 
-~ kVs=[11, 0.44] kVAs=[750] XHL=5.75 
-~ conns=[delta, wye]
+New Transformer.SUB2B buses=[SUB2_HV, SUB2_LV] phases=3 windings=2 xhl=5.75
+~ kVs=[11,0.44] kVAs=[1250,1250] conns=[wye,wye]
 
+New Transformer.SUB3A buses=[SUB3_HV, SUB3_LV] phases=3 windings=2 xhl=5.75
+~ kVs=[11,0.44] kVAs=[1600,1600] conns=[wye,wye]
 
-// =============================================
-// 3. BUS COORDINATES 
-// =============================================
-Buscoords bus_coordinates.csv
+New Transformer.SUB3B buses=[SUB3_HV, SUB3_LV] phases=3 windings=2 xhl=5.75
+~ kVs=[11,0.44] kVAs=[1600,1600] conns=[wye,wye]
 
+New Transformer.SUB4A buses=[SUB4_HV, SUB4_LV] phases=3 windings=2 xhl=5.75
+~ kVs=[11,0.44] kVAs=[750,750] conns=[wye,wye]
 
-// =============================================
-// 4. SYSTEM SETTINGS & ANALYSIS
-// =============================================
-// Set Voltagebases=[11, 0.44]
-// CalcVoltageBases
-// Set Tolerance=0.0001
-// Set Maxiter=100
-// Solve
+New Transformer.SUB4B buses=[SUB4_HV, SUB4_LV] phases=3 windings=2 xhl=5.75
+~ kVs=[11,0.44] kVAs=[750,750] conns=[wye,wye]
 
-// =============================================
-// 5. RESULTS & VISUALIZATION
-// =============================================
-// Show Voltages
-// Export Voltages
-// Export Currents
-// Set EarthModel=WGS84
-// Plot Circuit PowerFlow
+// --- Resistive LineCode (Only real power flow) ---
+New LineCode.R_only nphases=3 baseFreq=50 r1=0.02 x1=0 r0=0.02 x0=0 units=km
+
+// --- Lines Between Substations (1 km each) ---
+New Line.SUB1_SUB2 bus1=SUB1_HV bus2=SUB2_HV phases=3 length=1 linecode=R_only
+New Line.SUB2_SUB3 bus1=SUB2_HV bus2=SUB3_HV phases=3 length=1 linecode=R_only
+New Line.SUB3_SUB4 bus1=SUB3_HV bus2=SUB4_HV phases=3 length=1 linecode=R_only
+New Line.SUB4_MAIN bus1=SUB4_HV bus2=NITK_MainBus phases=3 length=1 linecode=R_only
+
+// --- Loads at Transformer LV Sides ---
+// SUB1 Loads
+New Load.Hostel1 bus1=SUB1_LV phases=3 Conn=wye Model=1 kV=0.44 kW=80 kvar=20
+New Load.Hostel2 bus1=SUB1_LV phases=3 Conn=wye Model=1 kV=0.44 kW=90 kvar=15
+
+// SUB2 Loads
+New Load.Lab1    bus1=SUB2_LV phases=3 Conn=wye Model=1 kV=0.44 kW=120 kvar=40
+New Load.Lab2    bus1=SUB2_LV phases=3 Conn=wye Model=1 kV=0.44 kW=100 kvar=35
+
+// SUB3 Loads
+New Load.Canteen bus1=SUB3_LV phases=3 Conn=wye Model=1 kV=0.44 kW=60 kvar=25
+New Load.Gym     bus1=SUB3_LV phases=3 Conn=wye Model=1 kV=0.44 kW=50 kvar=20
+
+// SUB4 Loads
+New Load.Admin   bus1=SUB4_LV phases=3 Conn=wye Model=1 kV=0.44 kW=70 kvar=30
+New Load.BlockC  bus1=SUB4_LV phases=3 Conn=wye Model=1 kV=0.44 kW=75 kvar=25
+
+// --- Load GIS Coordinates from CSV ---
+Buscoords coordinates.csv
+
+// --- Voltage Base & Solve ---
+Set Voltagebases=[11, 0.44]
+CalcVoltageBases
+Set Tolerance=0.0001
+Set Maxiter=100
+Solve
+
+// --- Export Analysis Data ---
+Export Voltages
+Export Currents
+Export Powers
+Export Losses
+
+// --- Plot Power Flow ---
+Plot Circuit PowerFlow
